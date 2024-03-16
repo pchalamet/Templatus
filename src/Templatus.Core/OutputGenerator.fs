@@ -4,7 +4,7 @@ open System
 open System.IO
 open System.Text.RegularExpressions
 open Chessie.ErrorHandling
-open Microsoft.FSharp.Compiler.Interactive.Shell
+open FSharp.Compiler.Interactive.Shell
 
 module OutputGenerator =
     let private prep templateParameters =

@@ -6,7 +6,7 @@ open Argu
 
 type Args =
     | [<CustomCommandLine("-t")>] Templates of string
-    | [<CustomCommandLine("-p")>][<Rest>] TemplateParameters of string
+    | [<EqualsAssignment; CustomCommandLine("-p")>] TemplateParameters of string*string
     | [<CustomCommandLine("-parallelization")>] Parallelization of int
 with
     interface IArgParserTemplate with
@@ -20,12 +20,10 @@ module Main =
     let getTemplateNames (parsedArgs: ParseResults<Args>) =
         match parsedArgs.TryGetResult <@ Templates @> with
         | Some t -> t.Split ';' |> List.ofArray |> pass
-        | None -> parsedArgs.Usage (message = "No templates provided.\nUsage:") |> fail
+        | None -> parsedArgs.Raise "No templates provided."
 
     let getTemplateParameters (parsedArgs: ParseResults<Args>) =
         parsedArgs.GetResults <@ TemplateParameters @>
-        |> List.map (fun p -> p.Split([|'='|], 2))
-        |> List.choose (fun ps -> if ps.Length <> 2 then None else Some (ps.[0], ps.[1]))
 
     let getDegreeOfParallelism (parsedArgs: ParseResults<Args>) =
         match parsedArgs.TryGetResult <@ Parallelization @> with

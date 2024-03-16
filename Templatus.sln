@@ -9,16 +9,15 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Templatus.Core", "src\Templ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project files", "Project files", "{3188BB49-E4FE-4E1A-81A6-69C2449D2678}"
 	ProjectSection(SolutionItems) = preProject
-		build.cmd = build.cmd
-		build.fsx = build.fsx
-		build.sh = build.sh
-		paket.dependencies = paket.dependencies
-		paket.lock = paket.lock
 		README.md = README.md
 		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Templatus.Core.Tests", "tests\Templatus.Core.Tests\Templatus.Core.Tests.fsproj", "{EDA939B5-A17D-4A81-A86A-04430DBE31AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF4019A8-30B1-49BE-8EAF-7CCBB6E9B7F5}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TestLib", "tests\TestLib\TestLib.fsproj", "{417C2AF4-F0CC-4992-A23A-4202F985BD0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,8 +37,15 @@ Global
 		{EDA939B5-A17D-4A81-A86A-04430DBE31AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDA939B5-A17D-4A81-A86A-04430DBE31AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDA939B5-A17D-4A81-A86A-04430DBE31AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417C2AF4-F0CC-4992-A23A-4202F985BD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417C2AF4-F0CC-4992-A23A-4202F985BD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417C2AF4-F0CC-4992-A23A-4202F985BD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417C2AF4-F0CC-4992-A23A-4202F985BD0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{417C2AF4-F0CC-4992-A23A-4202F985BD0D} = {BF4019A8-30B1-49BE-8EAF-7CCBB6E9B7F5}
 	EndGlobalSection
 EndGlobal

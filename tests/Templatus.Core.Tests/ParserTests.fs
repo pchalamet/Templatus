@@ -1,6 +1,7 @@
 ﻿namespace Tempaltus.Core.Tests
 
-open Xunit
+open FsUnit
+open NUnit.Framework
 open Swensen.Unquote
 open Templatus.Core
 open Templatus.Core.TemplateParser
@@ -14,7 +15,7 @@ module ParserTestHelpers =
         | Failure _ -> None
 
 module DirectiveParsers =
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse assembly reference`` () =
         let path = "somePath"
         let text = sprintf """<#@ assembly name="%s" #>""" path
@@ -22,7 +23,7 @@ module DirectiveParsers =
 
         parse pDirective text =! expected
 
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse include`` () =
         let file = "somePath"
         let text = sprintf """<#@ include file="%s" #>""" file
@@ -30,7 +31,7 @@ module DirectiveParsers =
 
         parse pDirective text =! expected
 
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse output`` () =
         let filename = "somePath"
         let text = sprintf """<#@ output filename="%s" #>""" filename
@@ -39,7 +40,7 @@ module DirectiveParsers =
         parse pDirective text =! expected
 
 module ControlParsers =
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse control expression`` () =
         let content = @"expr\ndsadasd"
         let text = sprintf "<#=%s#>" content
@@ -47,7 +48,7 @@ module ControlParsers =
 
         parse pControlExpression text =! expected
 
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse control block`` () =
         let content = @"expr\ndsadasd"
         let text = sprintf "<#%s#>" content
@@ -56,14 +57,14 @@ module ControlParsers =
         parse pControlBlock text =! expected
 
 module LiteralParsers =
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse eof literal`` () =
         let literal = @"sda\nsadas"
         let expected = Literal literal |> ParsedLiteral |> Some
 
         parse pLiteralEof literal =! expected
 
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse literal`` () =
         let literal = @"sda\nsadas "
         let text = sprintf "%s<#" literal
@@ -72,7 +73,7 @@ module LiteralParsers =
         parse pLiteral text =! expected
 
 module TemplateParsers =
-    [<Fact>]
+    [<Test>]
     let ``should correctly parse template`` () =
         let expected = [
             "file" |> Output |> ParsedDirective
