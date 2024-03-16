@@ -1,9 +1,10 @@
 #### 0.4.0 - 16.3.2024
-* Migrated project to net8.0
-* Upgraded F# Compiler Service + Fix namespace
-* Upgraded Argu + Fix deprecation
-* Removed Paket + Added Makefile
-* Replaced xUnit with FsUnit
+* Migrate project to net8.0
+* Upgrade F# Compiler Service + fix namespace
+* Upgrade Argu + fix deprecation (NOTE: changed -p requirements - no more Rest)
+* Remove Paket + add Makefile
+* Replace xUnit with FsUnit
+* Add TestLib (no more binary) + move test files
 
 #### 0.3.1 - 21.1.2018
 * Updated dependencies

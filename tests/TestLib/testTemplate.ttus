@@ -1,12 +1,11 @@
-﻿<#@ output filename=".\output.txt" #>
+﻿<#@ output filename="./output.txt" #>
 <#@ assembly name="TestLib.dll" #>
 Time: <#= DateTime.Now #>
 Number from TestLib: <#= TestLib.Test.Number () #>
-\"
 
 Params: <#= sprintf "Name: %s, Age: %s" name age #>
 
-<#@ include file="sub\include.ttus" #>
+<#@ include file="sub/include.ttus" #>
 Indented numbers:
 <#
     [1 .. 10]
@@ -18,4 +17,3 @@ Indented numbers:
 	clearIndent ()
 	tprintn "----"
 #>
-"END" \
